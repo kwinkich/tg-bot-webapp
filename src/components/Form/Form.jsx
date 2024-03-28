@@ -15,10 +15,11 @@ export const Form = () => {
 			city,
 			subject,
 		};
-		tg.sendMessage(JSON.stringify(data));
+		tg.sendData(JSON.stringify(data));
 	}, [country, city, subject, tg]);
 
 	useEffect(() => {
+		console.log('ok');
 		tg.onEvent('mainButtonClicked', onSendData);
 		return () => {
 			tg.offEvent('mainButtonClicked', onSendData);
@@ -72,7 +73,7 @@ export const Form = () => {
 				<option value='physical'>Физ. лицо</option>
 				<option value='legal'>Юр лицо</option>
 			</select>
-			<Button onClick={onSendData}>Send</Button>
+			<Button onClick={sendData}>Send</Button>
 		</div>
 	);
 };
