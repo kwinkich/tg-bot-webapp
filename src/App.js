@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
-import { Router, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom'; // Используем BrowserRouter вместо Router
 import './App.css';
-import { Form } from './components/Form/Form';
-import { Header } from './components/Header/Header';
-import { ProductList } from './components/ProductList/ProductList';
+import { Form } from './components/Form/Form.jsx';
+import { Header } from './components/Header/Header.jsx';
+import { ProductList } from './components/ProductList/ProductList.jsx';
 import useTelegram from './hooks/useTelegram';
 
 function App() {
@@ -17,8 +17,8 @@ function App() {
 		<div className='App'>
 			<Header />
 			<Routes>
-				<Router index element={<ProductList />} />
-				<Router path={'form'} element={<Form />} />
+				<Route path='/' element={<ProductList />} />
+				<Route path='form' element={<Form />} />
 			</Routes>
 		</div>
 	);
