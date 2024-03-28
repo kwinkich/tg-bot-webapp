@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
 import useTelegram from '../../hooks/useTelegram';
-import { Button } from '../Button/Button.jsx';
 import './Form.css';
 
 export const Form = () => {
@@ -73,7 +72,6 @@ export const Form = () => {
 				<option value='physical'>Физ. лицо</option>
 				<option value='legal'>Юр лицо</option>
 			</select>
-			<Button onClick={sendData}>Send</Button>
 		</div>
 	);
 };
