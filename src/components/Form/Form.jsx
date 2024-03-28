@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import useTelegram from '../../hooks/useTelegram';
+import { Button } from '../Button/Button.jsx';
 import './Form.css';
 
 export const Form = () => {
@@ -14,15 +15,15 @@ export const Form = () => {
 			city,
 			subject,
 		};
-		tg.onSendData(JSON.stringify(data));
-	}, [tg, city, country, subject]);
+		tg.sendMessage(JSON.stringify(data));
+	}, [country, city, subject, tg]);
 
 	useEffect(() => {
 		tg.onEvent('mainButtonClicked', onSendData);
 		return () => {
 			tg.offEvent('mainButtonClicked', onSendData);
 		};
-	}, [tg, onSendData]);
+	}, [onSendData, tg]);
 
 	useEffect(() => {
 		tg.MainButton.setParams({
@@ -71,6 +72,7 @@ export const Form = () => {
 				<option value='physical'>Физ. лицо</option>
 				<option value='legal'>Юр лицо</option>
 			</select>
+			<Button onClick={onSendData}>Send</Button>
 		</div>
 	);
 };
