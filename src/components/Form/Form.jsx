@@ -20,7 +20,7 @@ export const Form = () => {
 		} else {
 			tg.MainButton.show();
 		}
-	}, [country, city]);
+	}, [city, country, tg]);
 
 	const onChangeCountry = (e) => {
 		setCountry(e.target.value);
