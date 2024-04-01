@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import useTelegram from '../../hooks/useTelegram';
 import { ProductItem } from '../ProductItem/ProductItem';
 import './ProductList.css';
@@ -26,7 +26,7 @@ export const ProductList = () => {
 		const data = {
 			products: addedItems,
 			totalPrice: getTotalPrice(addedItems),
-			queryId: queryId,
+			queryId,
 		};
 		fetch('http://localhost:8000', {
 			method: 'POST',
