@@ -16,7 +16,7 @@ export const Form = () => {
       queryId,
 		};
 		tg.sendData(JSON.stringify(data));
-	}, [country, city, subject, tg]);
+	}, [country, city, subject, queryId, tg]);
 
 	useEffect(() => {
 		console.log('ok');
