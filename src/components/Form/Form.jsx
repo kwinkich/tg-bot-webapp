@@ -6,17 +6,17 @@ export const Form = () => {
 	const [country, setCountry] = useState('');
 	const [city, setCity] = useState('');
 	const [subject, setSubject] = useState('physical');
-	const { tg, queryId } = useTelegram();
+	const { tg, id } = useTelegram();
 
 	const onSendData = useCallback(() => {
 		const data = {
 			country,
 			city,
 			subject,
-      queryId,
+      id,
 		};
 		tg.sendData(JSON.stringify(data));
-	}, [country, city, subject, queryId, tg]);
+	}, [country, city, subject, id, tg]);
 
 	useEffect(() => {
 		console.log('ok');
